@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using SistemaCadastroEspecie;
 
 namespace SistemaCadastro
 {
@@ -82,6 +83,18 @@ namespace SistemaCadastro
         }
 
         private void BtnConfirmaCadastro_Click(object sender, EventArgs e)
+        {
+            ConectaBD con = new ConectaBD();
+            Especie novaEspecie = new Especie();
+            novaEspecie.Id = Convert.ToInt32(txtid.Text);
+            novaEspecie.Nome = txtnome.Text;
+            novaEspecie.Preco = Convert.ToInt32(txtpreco.Text);
+            bool retorno = con.insereEspecie(novaEspecie);
+            if (retorno == false)
+                MessageBox.Show(con.mensagem);
+        }
+
+        private void label3_Click(object sender, EventArgs e)
         {
 
         }
