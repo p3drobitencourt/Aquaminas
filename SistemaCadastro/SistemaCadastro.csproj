@@ -147,5 +147,8 @@
   <ItemGroup>
     <None Include="Resources\botao-adicionar %281%29.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\psicultura-aqua-minas-transparente2.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

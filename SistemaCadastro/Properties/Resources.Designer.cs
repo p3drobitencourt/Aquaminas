@@ -93,6 +93,16 @@ namespace SistemaCadastro.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap psicultura_aqua_minas_transparente2 {
+            get {
+                object obj = ResourceManager.GetObject("psicultura-aqua-minas-transparente2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap rock_and_roll {
             get {
                 object obj = ResourceManager.GetObject("rock-and-roll", resourceCulture);

@@ -14,6 +14,7 @@ namespace SistemaCadastro
 {
     public partial class Sistema : Form
     {
+        int tela = 0;
 
         public Sistema()
         {
@@ -28,6 +29,9 @@ namespace SistemaCadastro
 
         private void btnCadastra_Click(object sender, EventArgs e)
         {
+            lblCadastrar1.Text = "Nome da espécie:";
+            lblpreco.Text = "Preço:";
+            
             marcador.Height = btnCadastra.Height;
             marcador.Top = btnCadastra.Top;
             tabControl1.SelectedTab = tabControl1.TabPages[0];
@@ -36,24 +40,26 @@ namespace SistemaCadastro
 
         private void btnBusca_Click(object sender, EventArgs e)
         {
+            lblCadastrar1.Text = "Quantidade vendida:";
+            lblpreco.Text = "Preço total:";
             marcador.Height = btnBusca.Height;
             marcador.Top = btnBusca.Top;
-            tabControl1.SelectedTab = tabControl1.TabPages[1];
         }
-
-
-
-
-
 
 
         private void Sistema_Load(object sender, EventArgs e)
         {
          
         }
-
-
-
+        public void listaEspecie()
+        {
+            ConectaBD con = new ConectaBD();
+            DataTable tabelaDados = new DataTable();
+            tabelaDados = con.listaEspecie();
+            cbPeixe.DataSource = tabelaDados;
+            cbPeixe.DisplayMember = "Especie";
+            cbPeixe.ValueMember = "idEspecie";
+        }
 
         private void txtBusca_TextChanged(object sender, EventArgs e)
         {
@@ -86,9 +92,9 @@ namespace SistemaCadastro
         {
             ConectaBD con = new ConectaBD();
             Especie novaEspecie = new Especie();
-            novaEspecie.Id = Convert.ToInt32(txtid.Text);
+            novaEspecie.Id = Convert.ToInt32(lblpeixe.Text);
             novaEspecie.Nome = txtnome.Text;
-            novaEspecie.Preco = Convert.ToInt32(txtpreco.Text);
+            novaEspecie.Preco = Convert.ToInt32(lblpreco.Text);
             bool retorno = con.insereEspecie(novaEspecie);
             if (retorno == false)
                 MessageBox.Show(con.mensagem);
@@ -98,5 +104,26 @@ namespace SistemaCadastro
         {
 
         }
+
+        private void txtid_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabCadastrar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtintegrantes_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblCadastrar1_Click(object sender, EventArgs e)
+        {
+            
+        }
+
     }
 }
