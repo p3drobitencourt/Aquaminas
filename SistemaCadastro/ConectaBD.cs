@@ -55,9 +55,26 @@ namespace SistemaCadastroEspecie
             }
         }
 
-        public DataTable listaEspecie()
+        public bool deleteEspecie(int  novaEspecie)
         {
-
+            MySqlCommand cmd = new MySqlCommand("sp_removeEspecie", conexao);
+            cmd.CommandType = CommandType.StoredProcedure;
+           // cmd.Parameters.AddWithValue("idEspecie", idRemoveEspecie);
+            try
+            {
+                conexao.Open();
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch(MySqlException e)
+            {
+                mensagem = "Erro" +e.Message;
+                return false;
+            }
+            finally
+            {
+                conexao.Close();
+            }
         }
     }
 }

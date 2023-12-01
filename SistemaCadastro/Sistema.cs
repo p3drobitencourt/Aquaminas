@@ -19,9 +19,9 @@ namespace SistemaCadastro
         public Sistema()
         {
             InitializeComponent();
-            
+
         }
-        
+
         private void button2_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -31,12 +31,12 @@ namespace SistemaCadastro
         {
             lblCadastrar1.Text = "Nome da espécie:";
             lblpreco.Text = "Preço:";
-            
+
             marcador.Height = btnCadastra.Height;
             marcador.Top = btnCadastra.Top;
             tabControl1.SelectedTab = tabControl1.TabPages[0];
         }
-        
+
 
         private void btnBusca_Click(object sender, EventArgs e)
         {
@@ -55,7 +55,7 @@ namespace SistemaCadastro
 
         void listagridEspecie()
         {
-            ConectaBD con =new ConectaBD();
+            ConectaBD con = new ConectaBD();
             dgEspecie.DataSource = con.listaEspecie();
         }
         public void listaCBEspecie()
@@ -88,14 +88,13 @@ namespace SistemaCadastro
                     listagridEspecie();
                 }
                 else
-                {
                     MessageBox.Show(con.mensagem);
-                }
+            }
             else
                 MessageBox.Show("Exclusão cancelada");
-                
-            }
+
         }
+    
 
         private void btnAlterar_Click(object sender, EventArgs e)
         {
