@@ -54,5 +54,10 @@ namespace SistemaCadastroEspecie
                 conexao.Close();
             }
         }
+
+        public DataTable listaEspecie()
+        {
+
+        }
     }
 }

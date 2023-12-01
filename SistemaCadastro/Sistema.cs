@@ -49,9 +49,16 @@ namespace SistemaCadastro
 
         private void Sistema_Load(object sender, EventArgs e)
         {
-         
+            listaCBEspecie();
+            listagridEspecie();
         }
-        public void listaEspecie()
+
+        void listagridEspecie()
+        {
+            ConectaBD con =new ConectaBD();
+            dgEspecie.DataSource = con.listaEspecie();
+        }
+        public void listaCBEspecie()
         {
             ConectaBD con = new ConectaBD();
             DataTable tabelaDados = new DataTable();
@@ -63,12 +70,31 @@ namespace SistemaCadastro
 
         private void txtBusca_TextChanged(object sender, EventArgs e)
         {
-  
+            (dgEspecie.DataSource as DataTable).DefaultView.RowFilter = string.Format("nome especie '{0}%'", txtEspecieBuscar.Text);
         }
 
-        private void btnRemoveBanda_Click(object sender, EventArgs e)
+        private void btnRemoveEspecie_Click(object sender, EventArgs e)
         {
-           
+            int linha = dgEspecie.CurrentRow.Index;
+            int id = Convert.ToInt32(dgEspecie.Rows[linha].Cells["idEspecie"].Value.ToString());
+            DialogResult resp = MessageBox.Show("Tem certeza dessa exclusão", MessageBoxButtons.OKCancel);
+            if (resp == DialogResult.OK)
+            {
+                ConectaBD con = new ConectaBD();
+                bool retorno = con.deleteEspecie(id);
+                if (retorno == true)
+                {
+                    MessageBox.Show("Especie excluida com sucesso");
+                    listagridEspecie();
+                }
+                else
+                {
+                    MessageBox.Show(con.mensagem);
+                }
+            else
+                MessageBox.Show("Exclusão cancelada");
+                
+            }
         }
 
         private void btnAlterar_Click(object sender, EventArgs e)
@@ -87,7 +113,13 @@ namespace SistemaCadastro
         {
           
         }
-
+        void limpaCampos()
+        {
+            txtnome.Clear();
+            cbPeixe.Text = "";
+            txtpreco.Clear();
+            txtnome.Focus();
+        }
         private void BtnConfirmaCadastro_Click(object sender, EventArgs e)
         {
             ConectaBD con = new ConectaBD();
@@ -98,6 +130,9 @@ namespace SistemaCadastro
             bool retorno = con.insereEspecie(novaEspecie);
             if (retorno == false)
                 MessageBox.Show(con.mensagem);
+
+            limpaCampos();
+            listagridEspecie();
         }
 
         private void label3_Click(object sender, EventArgs e)

@@ -36,14 +36,14 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabCadastrar = new System.Windows.Forms.TabPage();
-            this.txtintegrantes = new System.Windows.Forms.TextBox();
+            this.txtpreco = new System.Windows.Forms.TextBox();
             this.txtnome = new System.Windows.Forms.TextBox();
             this.lblpreco = new System.Windows.Forms.Label();
             this.lblCadastrar1 = new System.Windows.Forms.Label();
             this.tabBuscar = new System.Windows.Forms.TabPage();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtBusca = new System.Windows.Forms.TextBox();
-            this.dgBandas = new System.Windows.Forms.DataGridView();
+            this.txtEspecieBuscar = new System.Windows.Forms.TextBox();
+            this.dgEspecie = new System.Windows.Forms.DataGridView();
             this.tabAlterar = new System.Windows.Forms.TabPage();
             this.txtAlteraRanking = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -56,7 +56,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.BtnConfirmaCadastro = new System.Windows.Forms.Button();
             this.btnAlterar = new System.Windows.Forms.Button();
-            this.btnRemoveBanda = new System.Windows.Forms.Button();
+            this.btnRemoveEspecie = new System.Windows.Forms.Button();
             this.btnConfirmaAlteracao = new System.Windows.Forms.Button();
             this.marcador = new System.Windows.Forms.Panel();
             this.lblpeixe = new System.Windows.Forms.Label();
@@ -66,7 +66,7 @@
             this.tabControl1.SuspendLayout();
             this.tabCadastrar.SuspendLayout();
             this.tabBuscar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgBandas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgEspecie)).BeginInit();
             this.tabAlterar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -158,7 +158,7 @@
             this.tabCadastrar.Controls.Add(this.cbPeixe);
             this.tabCadastrar.Controls.Add(this.lblpeixe);
             this.tabCadastrar.Controls.Add(this.BtnConfirmaCadastro);
-            this.tabCadastrar.Controls.Add(this.txtintegrantes);
+            this.tabCadastrar.Controls.Add(this.txtpreco);
             this.tabCadastrar.Controls.Add(this.txtnome);
             this.tabCadastrar.Controls.Add(this.lblpreco);
             this.tabCadastrar.Controls.Add(this.lblCadastrar1);
@@ -171,15 +171,15 @@
             this.tabCadastrar.Text = "Cadastrar";
             this.tabCadastrar.Click += new System.EventHandler(this.tabCadastrar_Click);
             // 
-            // txtintegrantes
+            // txtpreco
             // 
-            this.txtintegrantes.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.txtintegrantes.Location = new System.Drawing.Point(176, 106);
-            this.txtintegrantes.Margin = new System.Windows.Forms.Padding(4);
-            this.txtintegrantes.Name = "txtintegrantes";
-            this.txtintegrantes.Size = new System.Drawing.Size(639, 32);
-            this.txtintegrantes.TabIndex = 11;
-            this.txtintegrantes.TextChanged += new System.EventHandler(this.txtintegrantes_TextChanged);
+            this.txtpreco.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.txtpreco.Location = new System.Drawing.Point(176, 106);
+            this.txtpreco.Margin = new System.Windows.Forms.Padding(4);
+            this.txtpreco.Name = "txtpreco";
+            this.txtpreco.Size = new System.Drawing.Size(639, 32);
+            this.txtpreco.TabIndex = 11;
+            this.txtpreco.TextChanged += new System.EventHandler(this.txtintegrantes_TextChanged);
             // 
             // txtnome
             // 
@@ -220,10 +220,10 @@
             // 
             this.tabBuscar.BackColor = System.Drawing.Color.White;
             this.tabBuscar.Controls.Add(this.btnAlterar);
-            this.tabBuscar.Controls.Add(this.btnRemoveBanda);
+            this.tabBuscar.Controls.Add(this.btnRemoveEspecie);
             this.tabBuscar.Controls.Add(this.label5);
-            this.tabBuscar.Controls.Add(this.txtBusca);
-            this.tabBuscar.Controls.Add(this.dgBandas);
+            this.tabBuscar.Controls.Add(this.txtEspecieBuscar);
+            this.tabBuscar.Controls.Add(this.dgEspecie);
             this.tabBuscar.Location = new System.Drawing.Point(4, 30);
             this.tabBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.tabBuscar.Name = "tabBuscar";
@@ -241,29 +241,29 @@
             this.label5.TabIndex = 2;
             this.label5.Text = "Especie:";
             // 
-            // txtBusca
+            // txtEspecieBuscar
             // 
-            this.txtBusca.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.txtBusca.Location = new System.Drawing.Point(109, 12);
-            this.txtBusca.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtBusca.Name = "txtBusca";
-            this.txtBusca.Size = new System.Drawing.Size(347, 32);
-            this.txtBusca.TabIndex = 1;
-            this.txtBusca.TextChanged += new System.EventHandler(this.txtBusca_TextChanged);
+            this.txtEspecieBuscar.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.txtEspecieBuscar.Location = new System.Drawing.Point(109, 12);
+            this.txtEspecieBuscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtEspecieBuscar.Name = "txtEspecieBuscar";
+            this.txtEspecieBuscar.Size = new System.Drawing.Size(347, 32);
+            this.txtEspecieBuscar.TabIndex = 1;
+            this.txtEspecieBuscar.TextChanged += new System.EventHandler(this.txtBusca_TextChanged);
             // 
-            // dgBandas
+            // dgEspecie
             // 
-            this.dgBandas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgBandas.BackgroundColor = System.Drawing.Color.White;
-            this.dgBandas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgBandas.Location = new System.Drawing.Point(56, 68);
-            this.dgBandas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dgBandas.Name = "dgBandas";
-            this.dgBandas.ReadOnly = true;
-            this.dgBandas.RowHeadersWidth = 51;
-            this.dgBandas.RowTemplate.Height = 29;
-            this.dgBandas.Size = new System.Drawing.Size(797, 233);
-            this.dgBandas.TabIndex = 0;
+            this.dgEspecie.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgEspecie.BackgroundColor = System.Drawing.Color.White;
+            this.dgEspecie.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgEspecie.Location = new System.Drawing.Point(56, 68);
+            this.dgEspecie.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgEspecie.Name = "dgEspecie";
+            this.dgEspecie.ReadOnly = true;
+            this.dgEspecie.RowHeadersWidth = 51;
+            this.dgEspecie.RowTemplate.Height = 29;
+            this.dgEspecie.Size = new System.Drawing.Size(797, 233);
+            this.dgEspecie.TabIndex = 0;
             // 
             // tabAlterar
             // 
@@ -417,24 +417,24 @@
             this.btnAlterar.UseVisualStyleBackColor = true;
             this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
-            // btnRemoveBanda
+            // btnRemoveEspecie
             // 
-            this.btnRemoveBanda.FlatAppearance.BorderSize = 0;
-            this.btnRemoveBanda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRemoveBanda.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.btnRemoveBanda.ForeColor = System.Drawing.Color.DimGray;
-            this.btnRemoveBanda.Image = ((System.Drawing.Image)(resources.GetObject("btnRemoveBanda.Image")));
-            this.btnRemoveBanda.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRemoveBanda.Location = new System.Drawing.Point(484, 6);
-            this.btnRemoveBanda.Margin = new System.Windows.Forms.Padding(4);
-            this.btnRemoveBanda.Name = "btnRemoveBanda";
-            this.btnRemoveBanda.Size = new System.Drawing.Size(163, 56);
-            this.btnRemoveBanda.TabIndex = 14;
-            this.btnRemoveBanda.Text = "Remover";
-            this.btnRemoveBanda.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRemoveBanda.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnRemoveBanda.UseVisualStyleBackColor = true;
-            this.btnRemoveBanda.Click += new System.EventHandler(this.btnRemoveBanda_Click);
+            this.btnRemoveEspecie.FlatAppearance.BorderSize = 0;
+            this.btnRemoveEspecie.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRemoveEspecie.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.btnRemoveEspecie.ForeColor = System.Drawing.Color.DimGray;
+            this.btnRemoveEspecie.Image = ((System.Drawing.Image)(resources.GetObject("btnRemoveEspecie.Image")));
+            this.btnRemoveEspecie.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRemoveEspecie.Location = new System.Drawing.Point(484, 6);
+            this.btnRemoveEspecie.Margin = new System.Windows.Forms.Padding(4);
+            this.btnRemoveEspecie.Name = "btnRemoveEspecie";
+            this.btnRemoveEspecie.Size = new System.Drawing.Size(163, 56);
+            this.btnRemoveEspecie.TabIndex = 14;
+            this.btnRemoveEspecie.Text = "Remover";
+            this.btnRemoveEspecie.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRemoveEspecie.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnRemoveEspecie.UseVisualStyleBackColor = true;
+            this.btnRemoveEspecie.Click += new System.EventHandler(this.btnRemoveBanda_Click);
             // 
             // btnConfirmaAlteracao
             // 
@@ -510,7 +510,7 @@
             this.tabCadastrar.PerformLayout();
             this.tabBuscar.ResumeLayout(false);
             this.tabBuscar.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgBandas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgEspecie)).EndInit();
             this.tabAlterar.ResumeLayout(false);
             this.tabAlterar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -531,15 +531,15 @@
         private System.Windows.Forms.TabPage tabCadastrar;
         private System.Windows.Forms.TabPage tabBuscar;
         private System.Windows.Forms.Button BtnConfirmaCadastro;
-        private System.Windows.Forms.TextBox txtintegrantes;
+        private System.Windows.Forms.TextBox txtpreco;
         private System.Windows.Forms.TextBox txtnome;
         private System.Windows.Forms.Label lblpreco;
         private System.Windows.Forms.Label lblCadastrar1;
-        private System.Windows.Forms.DataGridView dgBandas;
+        private System.Windows.Forms.DataGridView dgEspecie;
         private System.Windows.Forms.Label lblMensagem;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtBusca;
-        private System.Windows.Forms.Button btnRemoveBanda;
+        private System.Windows.Forms.TextBox txtEspecieBuscar;
+        private System.Windows.Forms.Button btnRemoveEspecie;
         private System.Windows.Forms.Button btnAlterar;
         private System.Windows.Forms.TabPage tabAlterar;
         private System.Windows.Forms.TextBox txtAlteraRanking;
