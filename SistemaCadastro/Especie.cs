@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace SistemaCadastro
 {
-    class Especie
+    internal class Especie
     {
-        private int id;
         string nome;
-        int preco;
+        int id;
+        double preco;
 
-        public int Id { get => id; set => id = value; }
         public string Nome { get => nome; set => nome = value; }
-        public int Preco { get => preco; set => preco = value; }
+        public int Id { get => id; set => id = value; }
+        public double Preco { get => preco; set => preco = value; }
     }
 }
