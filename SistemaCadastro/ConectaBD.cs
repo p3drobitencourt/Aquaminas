@@ -42,6 +42,8 @@ namespace SistemaCadastro
                 MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                 DataTable tabela = new DataTable();
                 da.Fill(tabela);
+                Console.WriteLine(tabela.ToString());
+                Console.WriteLine("alberto");
                 return tabela;
             }
             catch (MySqlException e)
@@ -86,10 +88,10 @@ namespace SistemaCadastro
         }
         public bool deletaEspecie(int removeEspecie)
         {
-            MySqlCommand cmd = new MySqlCommand("sp_remove_Especie", conexao);
+            MySqlCommand cmd = new MySqlCommand("sp_removeEspecie", conexao);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("nome", removeEspecie.nome );
-            cmd.Parameters.AddWithValue("preco", removeEspecie.preco);
+            cmd.Parameters.AddWithValue("idEspecie", removeEspecie);
+
             try
             {
                 conexao.Open();
@@ -109,10 +111,11 @@ namespace SistemaCadastro
         }
         public bool alteraEspecie(Especie e,int idEspecie)
         {
-            MySqlCommand cmd = new MySqlCommand("altera_Especie", conexao);
+            MySqlCommand cmd = new MySqlCommand("sp_alteraEspecie", conexao);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("nome", e.Nome);
+            cmd.Parameters.AddWithValue("nomeEspecie", e.Nome);
             cmd.Parameters.AddWithValue("preco", e.Preco);
+            cmd.Parameters.AddWithValue("idEspecie", idEspecie);
             try
             {
                 conexao.Open();
@@ -133,7 +136,7 @@ namespace SistemaCadastro
         public bool verifica(string user, string pass)
         {
             string senhaHash = Biblioteca.makeHash(pass);
-            MySqlCommand cmd = new MySqlCommand("consultaLogin", conexao);
+            MySqlCommand cmd = new MySqlCommand("sp_consultaLogin", conexao);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("usuario", user);
             cmd.Parameters.AddWithValue("senha", senhaHash);

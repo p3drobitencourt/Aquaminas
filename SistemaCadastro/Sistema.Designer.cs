@@ -75,18 +75,16 @@
             this.panel1.Controls.Add(this.btnCadastra);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(207, 535);
+            this.panel1.Size = new System.Drawing.Size(155, 435);
             this.panel1.TabIndex = 0;
             // 
             // marcador
             // 
             this.marcador.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(176)))), ((int)(((byte)(226)))));
-            this.marcador.Location = new System.Drawing.Point(1, 105);
-            this.marcador.Margin = new System.Windows.Forms.Padding(4);
+            this.marcador.Location = new System.Drawing.Point(1, 85);
             this.marcador.Name = "marcador";
-            this.marcador.Size = new System.Drawing.Size(13, 44);
+            this.marcador.Size = new System.Drawing.Size(10, 36);
             this.marcador.TabIndex = 8;
             // 
             // btnBusca
@@ -96,10 +94,9 @@
             this.btnBusca.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.btnBusca.ForeColor = System.Drawing.Color.White;
             this.btnBusca.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBusca.Location = new System.Drawing.Point(22, 157);
-            this.btnBusca.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBusca.Location = new System.Drawing.Point(16, 128);
             this.btnBusca.Name = "btnBusca";
-            this.btnBusca.Size = new System.Drawing.Size(175, 60);
+            this.btnBusca.Size = new System.Drawing.Size(131, 49);
             this.btnBusca.TabIndex = 5;
             this.btnBusca.Text = "&Buscar";
             this.btnBusca.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -114,10 +111,9 @@
             this.btnCadastra.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.btnCadastra.ForeColor = System.Drawing.Color.White;
             this.btnCadastra.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCadastra.Location = new System.Drawing.Point(22, 100);
-            this.btnCadastra.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCadastra.Location = new System.Drawing.Point(16, 81);
             this.btnCadastra.Name = "btnCadastra";
-            this.btnCadastra.Size = new System.Drawing.Size(175, 60);
+            this.btnCadastra.Size = new System.Drawing.Size(131, 49);
             this.btnCadastra.TabIndex = 3;
             this.btnCadastra.Text = "&Cadastrar";
             this.btnCadastra.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -130,18 +126,16 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(176)))), ((int)(((byte)(226)))));
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(207, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4);
+            this.panel2.Location = new System.Drawing.Point(155, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(896, 28);
+            this.panel2.Size = new System.Drawing.Size(672, 23);
             this.panel2.TabIndex = 1;
             // 
             // panel3
             // 
-            this.panel3.Location = new System.Drawing.Point(60, 46);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4);
+            this.panel3.Location = new System.Drawing.Point(45, 37);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(167, 161);
+            this.panel3.Size = new System.Drawing.Size(125, 131);
             this.panel3.TabIndex = 2;
             // 
             // tabControl1
@@ -150,11 +144,10 @@
             this.tabControl1.Controls.Add(this.tabBuscar);
             this.tabControl1.Controls.Add(this.tabAlterar);
             this.tabControl1.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.tabControl1.Location = new System.Drawing.Point(207, 193);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
+            this.tabControl1.Location = new System.Drawing.Point(155, 174);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(896, 342);
+            this.tabControl1.Size = new System.Drawing.Size(672, 261);
             this.tabControl1.TabIndex = 9;
             // 
             // tabCadastrar
@@ -165,11 +158,10 @@
             this.tabCadastrar.Controls.Add(this.txtnome);
             this.tabCadastrar.Controls.Add(this.lblPreco);
             this.tabCadastrar.Controls.Add(this.lblNomeEspecie);
-            this.tabCadastrar.Location = new System.Drawing.Point(4, 30);
-            this.tabCadastrar.Margin = new System.Windows.Forms.Padding(4);
+            this.tabCadastrar.Location = new System.Drawing.Point(4, 26);
             this.tabCadastrar.Name = "tabCadastrar";
-            this.tabCadastrar.Padding = new System.Windows.Forms.Padding(4);
-            this.tabCadastrar.Size = new System.Drawing.Size(888, 308);
+            this.tabCadastrar.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabCadastrar.Size = new System.Drawing.Size(664, 231);
             this.tabCadastrar.TabIndex = 0;
             this.tabCadastrar.Text = "Cadastrar";
             // 
@@ -180,10 +172,9 @@
             this.BtnConfirmaCadastro.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.BtnConfirmaCadastro.ForeColor = System.Drawing.Color.DimGray;
             this.BtnConfirmaCadastro.Image = global::SistemaCadastro.Properties.Resources.adicionar;
-            this.BtnConfirmaCadastro.Location = new System.Drawing.Point(380, 213);
-            this.BtnConfirmaCadastro.Margin = new System.Windows.Forms.Padding(4);
+            this.BtnConfirmaCadastro.Location = new System.Drawing.Point(285, 173);
             this.BtnConfirmaCadastro.Name = "BtnConfirmaCadastro";
-            this.BtnConfirmaCadastro.Size = new System.Drawing.Size(175, 60);
+            this.BtnConfirmaCadastro.Size = new System.Drawing.Size(131, 49);
             this.BtnConfirmaCadastro.TabIndex = 13;
             this.BtnConfirmaCadastro.Text = "&Cadastrar";
             this.BtnConfirmaCadastro.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -194,19 +185,17 @@
             // txtPreco
             // 
             this.txtPreco.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.txtPreco.Location = new System.Drawing.Point(176, 112);
-            this.txtPreco.Margin = new System.Windows.Forms.Padding(4);
+            this.txtPreco.Location = new System.Drawing.Point(132, 91);
             this.txtPreco.Name = "txtPreco";
-            this.txtPreco.Size = new System.Drawing.Size(639, 32);
+            this.txtPreco.Size = new System.Drawing.Size(480, 27);
             this.txtPreco.TabIndex = 11;
             // 
             // txtnome
             // 
             this.txtnome.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.txtnome.Location = new System.Drawing.Point(176, 54);
-            this.txtnome.Margin = new System.Windows.Forms.Padding(4);
+            this.txtnome.Location = new System.Drawing.Point(132, 44);
             this.txtnome.Name = "txtnome";
-            this.txtnome.Size = new System.Drawing.Size(639, 34);
+            this.txtnome.Size = new System.Drawing.Size(480, 29);
             this.txtnome.TabIndex = 9;
             // 
             // lblPreco
@@ -214,10 +203,9 @@
             this.lblPreco.AutoSize = true;
             this.lblPreco.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.lblPreco.ForeColor = System.Drawing.Color.DimGray;
-            this.lblPreco.Location = new System.Drawing.Point(16, 112);
-            this.lblPreco.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPreco.Location = new System.Drawing.Point(12, 91);
             this.lblPreco.Name = "lblPreco";
-            this.lblPreco.Size = new System.Drawing.Size(67, 23);
+            this.lblPreco.Size = new System.Drawing.Size(54, 21);
             this.lblPreco.TabIndex = 8;
             this.lblPreco.Text = "Preço";
             // 
@@ -226,10 +214,9 @@
             this.lblNomeEspecie.AutoSize = true;
             this.lblNomeEspecie.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.lblNomeEspecie.ForeColor = System.Drawing.Color.DimGray;
-            this.lblNomeEspecie.Location = new System.Drawing.Point(16, 54);
-            this.lblNomeEspecie.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNomeEspecie.Location = new System.Drawing.Point(12, 44);
             this.lblNomeEspecie.Name = "lblNomeEspecie";
-            this.lblNomeEspecie.Size = new System.Drawing.Size(75, 23);
+            this.lblNomeEspecie.Size = new System.Drawing.Size(61, 21);
             this.lblNomeEspecie.TabIndex = 6;
             this.lblNomeEspecie.Text = "Nome:";
             // 
@@ -241,11 +228,10 @@
             this.tabBuscar.Controls.Add(this.label5);
             this.tabBuscar.Controls.Add(this.txtEspecieBusca);
             this.tabBuscar.Controls.Add(this.dgEspecie);
-            this.tabBuscar.Location = new System.Drawing.Point(4, 30);
-            this.tabBuscar.Margin = new System.Windows.Forms.Padding(4);
+            this.tabBuscar.Location = new System.Drawing.Point(4, 26);
             this.tabBuscar.Name = "tabBuscar";
-            this.tabBuscar.Padding = new System.Windows.Forms.Padding(4);
-            this.tabBuscar.Size = new System.Drawing.Size(888, 308);
+            this.tabBuscar.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabBuscar.Size = new System.Drawing.Size(664, 248);
             this.tabBuscar.TabIndex = 1;
             this.tabBuscar.Text = "Buscar";
             // 
@@ -257,10 +243,9 @@
             this.btnAlterarEspecie.ForeColor = System.Drawing.Color.DimGray;
             this.btnAlterarEspecie.Image = ((System.Drawing.Image)(resources.GetObject("btnAlterarEspecie.Image")));
             this.btnAlterarEspecie.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAlterarEspecie.Location = new System.Drawing.Point(643, 6);
-            this.btnAlterarEspecie.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAlterarEspecie.Location = new System.Drawing.Point(482, 5);
             this.btnAlterarEspecie.Name = "btnAlterarEspecie";
-            this.btnAlterarEspecie.Size = new System.Drawing.Size(149, 56);
+            this.btnAlterarEspecie.Size = new System.Drawing.Size(112, 46);
             this.btnAlterarEspecie.TabIndex = 15;
             this.btnAlterarEspecie.Text = "Alterar";
             this.btnAlterarEspecie.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -276,10 +261,9 @@
             this.btnRemoveEspecie.ForeColor = System.Drawing.Color.DimGray;
             this.btnRemoveEspecie.Image = ((System.Drawing.Image)(resources.GetObject("btnRemoveEspecie.Image")));
             this.btnRemoveEspecie.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRemoveEspecie.Location = new System.Drawing.Point(484, 6);
-            this.btnRemoveEspecie.Margin = new System.Windows.Forms.Padding(4);
+            this.btnRemoveEspecie.Location = new System.Drawing.Point(363, 5);
             this.btnRemoveEspecie.Name = "btnRemoveEspecie";
-            this.btnRemoveEspecie.Size = new System.Drawing.Size(163, 56);
+            this.btnRemoveEspecie.Size = new System.Drawing.Size(122, 46);
             this.btnRemoveEspecie.TabIndex = 14;
             this.btnRemoveEspecie.Text = "Remover";
             this.btnRemoveEspecie.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -290,19 +274,20 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(24, 17);
+            this.label5.Location = new System.Drawing.Point(18, 14);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(79, 21);
+            this.label5.Size = new System.Drawing.Size(60, 17);
             this.label5.TabIndex = 2;
             this.label5.Text = "Especie:";
             // 
             // txtEspecieBusca
             // 
             this.txtEspecieBusca.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.txtEspecieBusca.Location = new System.Drawing.Point(109, 12);
-            this.txtEspecieBusca.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtEspecieBusca.Location = new System.Drawing.Point(82, 10);
+            this.txtEspecieBusca.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtEspecieBusca.Name = "txtEspecieBusca";
-            this.txtEspecieBusca.Size = new System.Drawing.Size(347, 32);
+            this.txtEspecieBusca.Size = new System.Drawing.Size(261, 27);
             this.txtEspecieBusca.TabIndex = 1;
             this.txtEspecieBusca.TextChanged += new System.EventHandler(this.txtBusca_TextChanged);
             // 
@@ -311,13 +296,13 @@
             this.dgEspecie.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgEspecie.BackgroundColor = System.Drawing.Color.White;
             this.dgEspecie.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgEspecie.Location = new System.Drawing.Point(56, 68);
-            this.dgEspecie.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgEspecie.Location = new System.Drawing.Point(42, 55);
+            this.dgEspecie.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgEspecie.Name = "dgEspecie";
             this.dgEspecie.ReadOnly = true;
             this.dgEspecie.RowHeadersWidth = 51;
             this.dgEspecie.RowTemplate.Height = 29;
-            this.dgEspecie.Size = new System.Drawing.Size(797, 233);
+            this.dgEspecie.Size = new System.Drawing.Size(598, 189);
             this.dgEspecie.TabIndex = 0;
             // 
             // tabAlterar
@@ -327,11 +312,11 @@
             this.tabAlterar.Controls.Add(this.lblPrecoAlt);
             this.tabAlterar.Controls.Add(this.lblNomeAlt);
             this.tabAlterar.Controls.Add(this.btnConfirmaAlteracaoEspecie);
-            this.tabAlterar.Location = new System.Drawing.Point(4, 30);
-            this.tabAlterar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabAlterar.Location = new System.Drawing.Point(4, 26);
+            this.tabAlterar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabAlterar.Name = "tabAlterar";
-            this.tabAlterar.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabAlterar.Size = new System.Drawing.Size(888, 308);
+            this.tabAlterar.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabAlterar.Size = new System.Drawing.Size(664, 248);
             this.tabAlterar.TabIndex = 2;
             this.tabAlterar.Text = "Alterar";
             this.tabAlterar.UseVisualStyleBackColor = true;
@@ -339,19 +324,17 @@
             // txtAlteraPreco
             // 
             this.txtAlteraPreco.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.txtAlteraPreco.Location = new System.Drawing.Point(170, 128);
-            this.txtAlteraPreco.Margin = new System.Windows.Forms.Padding(4);
+            this.txtAlteraPreco.Location = new System.Drawing.Point(128, 104);
             this.txtAlteraPreco.Name = "txtAlteraPreco";
-            this.txtAlteraPreco.Size = new System.Drawing.Size(639, 32);
+            this.txtAlteraPreco.Size = new System.Drawing.Size(480, 27);
             this.txtAlteraPreco.TabIndex = 19;
             // 
             // txtAlteraNome
             // 
             this.txtAlteraNome.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.txtAlteraNome.Location = new System.Drawing.Point(170, 67);
-            this.txtAlteraNome.Margin = new System.Windows.Forms.Padding(4);
+            this.txtAlteraNome.Location = new System.Drawing.Point(128, 54);
             this.txtAlteraNome.Name = "txtAlteraNome";
-            this.txtAlteraNome.Size = new System.Drawing.Size(639, 34);
+            this.txtAlteraNome.Size = new System.Drawing.Size(480, 29);
             this.txtAlteraNome.TabIndex = 17;
             // 
             // lblPrecoAlt
@@ -359,10 +342,9 @@
             this.lblPrecoAlt.AutoSize = true;
             this.lblPrecoAlt.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.lblPrecoAlt.ForeColor = System.Drawing.Color.DimGray;
-            this.lblPrecoAlt.Location = new System.Drawing.Point(10, 128);
-            this.lblPrecoAlt.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPrecoAlt.Location = new System.Drawing.Point(8, 104);
             this.lblPrecoAlt.Name = "lblPrecoAlt";
-            this.lblPrecoAlt.Size = new System.Drawing.Size(72, 23);
+            this.lblPrecoAlt.Size = new System.Drawing.Size(58, 21);
             this.lblPrecoAlt.TabIndex = 16;
             this.lblPrecoAlt.Text = "Preço:";
             // 
@@ -371,10 +353,9 @@
             this.lblNomeAlt.AutoSize = true;
             this.lblNomeAlt.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.lblNomeAlt.ForeColor = System.Drawing.Color.DimGray;
-            this.lblNomeAlt.Location = new System.Drawing.Point(10, 78);
-            this.lblNomeAlt.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNomeAlt.Location = new System.Drawing.Point(8, 63);
             this.lblNomeAlt.Name = "lblNomeAlt";
-            this.lblNomeAlt.Size = new System.Drawing.Size(75, 23);
+            this.lblNomeAlt.Size = new System.Drawing.Size(61, 21);
             this.lblNomeAlt.TabIndex = 14;
             this.lblNomeAlt.Text = "Nome:";
             // 
@@ -386,10 +367,9 @@
             this.btnConfirmaAlteracaoEspecie.ForeColor = System.Drawing.Color.DimGray;
             this.btnConfirmaAlteracaoEspecie.Image = ((System.Drawing.Image)(resources.GetObject("btnConfirmaAlteracaoEspecie.Image")));
             this.btnConfirmaAlteracaoEspecie.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConfirmaAlteracaoEspecie.Location = new System.Drawing.Point(390, 216);
-            this.btnConfirmaAlteracaoEspecie.Margin = new System.Windows.Forms.Padding(4);
+            this.btnConfirmaAlteracaoEspecie.Location = new System.Drawing.Point(292, 176);
             this.btnConfirmaAlteracaoEspecie.Name = "btnConfirmaAlteracaoEspecie";
-            this.btnConfirmaAlteracaoEspecie.Size = new System.Drawing.Size(175, 60);
+            this.btnConfirmaAlteracaoEspecie.Size = new System.Drawing.Size(131, 49);
             this.btnConfirmaAlteracaoEspecie.TabIndex = 22;
             this.btnConfirmaAlteracaoEspecie.Text = "Confirmar Alteração";
             this.btnConfirmaAlteracaoEspecie.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -401,17 +381,19 @@
             // 
             this.lblMensagem.AutoSize = true;
             this.lblMensagem.ForeColor = System.Drawing.Color.Red;
-            this.lblMensagem.Location = new System.Drawing.Point(726, 32);
+            this.lblMensagem.Location = new System.Drawing.Point(544, 26);
+            this.lblMensagem.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMensagem.Name = "lblMensagem";
-            this.lblMensagem.Size = new System.Drawing.Size(0, 16);
+            this.lblMensagem.Size = new System.Drawing.Size(0, 13);
             this.lblMensagem.TabIndex = 1;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::SistemaCadastro.Properties.Resources.psicultura_aqua_minas_transparente2;
-            this.pictureBox1.Location = new System.Drawing.Point(360, 46);
+            this.pictureBox1.Location = new System.Drawing.Point(200, 25);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(627, 140);
+            this.pictureBox1.Size = new System.Drawing.Size(592, 138);
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
             // 
@@ -422,10 +404,9 @@
             this.button2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.button2.ForeColor = System.Drawing.Color.Black;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(1066, 31);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
+            this.button2.Location = new System.Drawing.Point(800, 25);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(33, 41);
+            this.button2.Size = new System.Drawing.Size(25, 33);
             this.button2.TabIndex = 8;
             this.button2.Text = "X";
             this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -435,10 +416,10 @@
             // 
             // Sistema
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1103, 535);
+            this.ClientSize = new System.Drawing.Size(827, 435);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblMensagem);
             this.Controls.Add(this.tabControl1);
@@ -446,7 +427,6 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Sistema";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form2";

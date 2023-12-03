@@ -56,7 +56,7 @@ namespace SistemaCadastro
         {
             ConectaBD con = new ConectaBD();
             dgEspecie.DataSource = con.listaEspecie();
-            dgEspecie.Columns["idEspecie"].Visible = false;
+            dgEspecie.Columns["id"].Visible = false;
         }
         void listaEspecie()
         {
@@ -94,8 +94,8 @@ namespace SistemaCadastro
         private void btnAlterar_Click(object sender, EventArgs e)
         {
             int linha = dgEspecie.CurrentRow.Index;
-            AlteraNome.Text = Convert.ToInt32(dgEspecie.Rows[linha].Cells["nome"].Value.ToString());
-            AlteraPreco.Text = Convert.ToInt32(dgEspecie.Rows[linha].Cells["preco"].Value.ToString());
+            //AlteraNome.Text = Convert.ToInt32(dgEspecie.Rows[linha].Cells["nome"].Value.ToString());
+            //AlteraPreco.Text = Convert.ToInt32(dgEspecie.Rows[linha].Cells["preco"].Value.ToString());
         }
 
         private void btnConfirmaAlteracao_Click(object sender, EventArgs e)
