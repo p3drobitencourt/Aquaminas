@@ -26,7 +26,7 @@ namespace SistemaCadastro
         void layoutVenda()
         {
             lblNomeEspecie.Text = "Quantidade:";
-            lblPreco.Text = "Preço Total";
+            lblPreco.Text = "Preço Total:";
             txtPreco.Text = "Calculado automaticamente";
             label1.Visible = true;
             cbEspecie.Visible = true;
@@ -42,7 +42,7 @@ namespace SistemaCadastro
         void layoutEspecie()
         {
             lblNomeEspecie.Text = "Nome:";
-            lblPreco.Text = "Preço";
+            lblPreco.Text = "Preço:";
             txtPreco.Text = "";
             label1.Visible = false;
             cbEspecie.Visible = false;
