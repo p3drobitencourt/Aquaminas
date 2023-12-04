@@ -14,6 +14,8 @@ namespace SistemaCadastro
     public partial class Sistema : Form
     {
         char AlteraNome, AlteraPreco;
+        int idAlterar;
+        int estado = 0;
 
         public Sistema()
         {
@@ -49,8 +51,9 @@ namespace SistemaCadastro
 
         private void Sistema_Load(object sender, EventArgs e)
         {
-            listaCBEspecie();
+            //listaCBEspecie();
             listagridEspecie();
+            Console.WriteLine("Inicio load");
         }
         void listagridEspecie()
         {
@@ -65,13 +68,13 @@ namespace SistemaCadastro
 
         private void txtBusca_TextChanged(object sender, EventArgs e)
         {
-            (dgEspecie.DataSource as DataTable).DefaultView.RowFilter = string.Format("nome especie '{0}%'", txtEspecieBusca);
+            (dgEspecie.DataSource as DataTable).DefaultView.RowFilter = string.Format("nome like '{0}%'", txtEspecieBusca.Text);
         }
 
         private void btnRemoveBanda_Click(object sender, EventArgs e)
         {
             int linha = dgEspecie.CurrentRow.Index;
-            int id = Convert.ToInt32(dgEspecie.Rows[linha].Cells["idEspecie"].Value.ToString());
+            int id = Convert.ToInt32(dgEspecie.Rows[linha].Cells["id"].Value.ToString());
             DialogResult resp = MessageBox.Show("Tem certeza dessa exclusão?", "Remove Peixe", MessageBoxButtons.OKCancel);
             if (resp == DialogResult.OK)
             {
@@ -94,8 +97,10 @@ namespace SistemaCadastro
         private void btnAlterar_Click(object sender, EventArgs e)
         {
             int linha = dgEspecie.CurrentRow.Index;
-            //AlteraNome.Text = Convert.ToInt32(dgEspecie.Rows[linha].Cells["nome"].Value.ToString());
-            //AlteraPreco.Text = Convert.ToInt32(dgEspecie.Rows[linha].Cells["preco"].Value.ToString());
+            idAlterar = Convert.ToInt32(dgEspecie.Rows[linha].Cells["id"].Value.ToString());
+            txtAlteraNome.Text = dgEspecie.Rows[linha].Cells["nome"].Value.ToString();
+            txtAlteraPreco.Text = dgEspecie.Rows[linha].Cells["preco"].Value.ToString();
+            tabControl1.SelectedTab = tabAlterar;
         }
 
         private void btnConfirmaAlteracao_Click(object sender, EventArgs e)
@@ -104,12 +109,13 @@ namespace SistemaCadastro
             Especie novaEspecie = new Especie();
             novaEspecie.Nome = txtAlteraNome.Text ;
             novaEspecie.Preco = Convert.ToDouble(txtAlteraPreco.Text);
-            bool retorno = con.insereEspecie(novaEspecie);
+            bool retorno = con.alteraEspecie(novaEspecie,idAlterar);
             if (retorno == false)
                 MessageBox.Show(con.mensagem);
             else
                 MessageBox.Show("Alteração realizada com sucesso");
-            listagridEspecie();
+                listagridEspecie();
+                tabControl1.SelectedTab = tabBuscar;
 
         }
 
@@ -120,18 +126,43 @@ namespace SistemaCadastro
 
         private void BtnConfirmaCadastro_Click(object sender, EventArgs e)
         {
-            ConectaBD con = new ConectaBD();
-            Especie novaEspecie = new Especie();
-            novaEspecie.Nome = txtnome.Text;
-            novaEspecie.Preco = Convert.ToDouble(txtPreco.Text);
-            bool retorno = con.alteraEspecie(novaEspecie, AlteraNome );
-            if (retorno == false)
-                MessageBox.Show(con.mensagem);
+            if (estado == 0)
+            {
+                ConectaBD con = new ConectaBD();
+                Especie novaEspecie = new Especie();
+                novaEspecie.Nome = txtnome.Text;
+                novaEspecie.Preco = Convert.ToDouble(txtPreco.Text);
+                Console.WriteLine(novaEspecie.Preco);
+                bool retorno = con.insereEspecie(novaEspecie);
+                if (retorno == false)
+                    MessageBox.Show(con.mensagem);
 
-            limpaCampos();
-            listagridEspecie();
+                limpaCampos();
+                listagridEspecie();
+            }
+            else
+            {
+                ConectaBD con = new ConectaBD();
+                Especie novaEspecie = new Especie();
+                novaEspecie.Nome = txtnome.Text;
+                novaEspecie.Preco = Convert.ToDouble(txtPreco.Text);
+                Console.WriteLine(novaEspecie.Preco);
+                bool retorno = con.insereEspecie(novaEspecie);
+                if (retorno == false)
+                    MessageBox.Show(con.mensagem);
+
+                limpaCampos();
+                listagridEspecie();
+            }
+            
 
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
         public void listaCBEspecie()
         {
             ConectaBD con = new ConectaBD();

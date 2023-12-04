@@ -99,12 +99,12 @@
             this.BtnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnLogin.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.BtnLogin.ForeColor = System.Drawing.Color.DimGray;
-            this.BtnLogin.Image = global::SistemaCadastro.Properties.Resources.adicionar;
+            this.BtnLogin.Image = global::SistemaCadastro.Properties.Resources.contorno_do_botao_de_seta_quadrado_de_login__1_;
             this.BtnLogin.Location = new System.Drawing.Point(233, 295);
             this.BtnLogin.Name = "BtnLogin";
             this.BtnLogin.Size = new System.Drawing.Size(131, 49);
             this.BtnLogin.TabIndex = 16;
-            this.BtnLogin.Text = "&Login";
+            this.BtnLogin.Text = "   Login";
             this.BtnLogin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnLogin.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnLogin.UseVisualStyleBackColor = true;
@@ -114,7 +114,7 @@
             // 
             this.pictureBox1.Image = global::SistemaCadastro.Properties.Resources.psicultura_aqua_minas_transparente2;
             this.pictureBox1.Location = new System.Drawing.Point(23, 11);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(600, 167);
             this.pictureBox1.TabIndex = 15;
@@ -134,7 +134,7 @@
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.button2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmLogin";

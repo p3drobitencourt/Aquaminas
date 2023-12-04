@@ -115,6 +115,7 @@
     <Compile Include="Sistema.Designer.cs">
       <DependentUpon>Sistema.cs</DependentUpon>
     </Compile>
+    <Compile Include="Venda.cs" />
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -162,6 +163,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\chave.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\contorno-do-botao-de-seta-quadrado-de-login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\contorno-do-botao-de-seta-quadrado-de-login1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\contorno-do-botao-de-seta-quadrado-de-login %281%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

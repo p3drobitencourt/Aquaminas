@@ -57,6 +57,8 @@
             this.lblMensagem = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -153,6 +155,8 @@
             // tabCadastrar
             // 
             this.tabCadastrar.BackColor = System.Drawing.Color.White;
+            this.tabCadastrar.Controls.Add(this.comboBox1);
+            this.tabCadastrar.Controls.Add(this.label1);
             this.tabCadastrar.Controls.Add(this.BtnConfirmaCadastro);
             this.tabCadastrar.Controls.Add(this.txtPreco);
             this.tabCadastrar.Controls.Add(this.txtnome);
@@ -160,7 +164,7 @@
             this.tabCadastrar.Controls.Add(this.lblNomeEspecie);
             this.tabCadastrar.Location = new System.Drawing.Point(4, 26);
             this.tabCadastrar.Name = "tabCadastrar";
-            this.tabCadastrar.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabCadastrar.Padding = new System.Windows.Forms.Padding(3);
             this.tabCadastrar.Size = new System.Drawing.Size(664, 231);
             this.tabCadastrar.TabIndex = 0;
             this.tabCadastrar.Text = "Cadastrar";
@@ -205,9 +209,9 @@
             this.lblPreco.ForeColor = System.Drawing.Color.DimGray;
             this.lblPreco.Location = new System.Drawing.Point(12, 91);
             this.lblPreco.Name = "lblPreco";
-            this.lblPreco.Size = new System.Drawing.Size(54, 21);
+            this.lblPreco.Size = new System.Drawing.Size(58, 21);
             this.lblPreco.TabIndex = 8;
-            this.lblPreco.Text = "Preço";
+            this.lblPreco.Text = "Preço:";
             // 
             // lblNomeEspecie
             // 
@@ -230,8 +234,8 @@
             this.tabBuscar.Controls.Add(this.dgEspecie);
             this.tabBuscar.Location = new System.Drawing.Point(4, 26);
             this.tabBuscar.Name = "tabBuscar";
-            this.tabBuscar.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabBuscar.Size = new System.Drawing.Size(664, 248);
+            this.tabBuscar.Padding = new System.Windows.Forms.Padding(3);
+            this.tabBuscar.Size = new System.Drawing.Size(664, 231);
             this.tabBuscar.TabIndex = 1;
             this.tabBuscar.Text = "Buscar";
             // 
@@ -285,7 +289,7 @@
             // 
             this.txtEspecieBusca.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.txtEspecieBusca.Location = new System.Drawing.Point(82, 10);
-            this.txtEspecieBusca.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtEspecieBusca.Margin = new System.Windows.Forms.Padding(2);
             this.txtEspecieBusca.Name = "txtEspecieBusca";
             this.txtEspecieBusca.Size = new System.Drawing.Size(261, 27);
             this.txtEspecieBusca.TabIndex = 1;
@@ -297,7 +301,7 @@
             this.dgEspecie.BackgroundColor = System.Drawing.Color.White;
             this.dgEspecie.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgEspecie.Location = new System.Drawing.Point(42, 55);
-            this.dgEspecie.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgEspecie.Margin = new System.Windows.Forms.Padding(2);
             this.dgEspecie.Name = "dgEspecie";
             this.dgEspecie.ReadOnly = true;
             this.dgEspecie.RowHeadersWidth = 51;
@@ -313,10 +317,10 @@
             this.tabAlterar.Controls.Add(this.lblNomeAlt);
             this.tabAlterar.Controls.Add(this.btnConfirmaAlteracaoEspecie);
             this.tabAlterar.Location = new System.Drawing.Point(4, 26);
-            this.tabAlterar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabAlterar.Margin = new System.Windows.Forms.Padding(2);
             this.tabAlterar.Name = "tabAlterar";
-            this.tabAlterar.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tabAlterar.Size = new System.Drawing.Size(664, 248);
+            this.tabAlterar.Padding = new System.Windows.Forms.Padding(2);
+            this.tabAlterar.Size = new System.Drawing.Size(664, 231);
             this.tabAlterar.TabIndex = 2;
             this.tabAlterar.Text = "Alterar";
             this.tabAlterar.UseVisualStyleBackColor = true;
@@ -391,7 +395,7 @@
             // 
             this.pictureBox1.Image = global::SistemaCadastro.Properties.Resources.psicultura_aqua_minas_transparente2;
             this.pictureBox1.Location = new System.Drawing.Point(200, 25);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(592, 138);
             this.pictureBox1.TabIndex = 10;
@@ -413,6 +417,26 @@
             this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.label1.ForeColor = System.Drawing.Color.DimGray;
+            this.label1.Location = new System.Drawing.Point(12, 136);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(54, 21);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "Peixe:";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(132, 137);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(480, 25);
+            this.comboBox1.TabIndex = 15;
             // 
             // Sistema
             // 
@@ -477,5 +501,7 @@
         private System.Windows.Forms.TextBox txtPreco;
         private System.Windows.Forms.Label lblPreco;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

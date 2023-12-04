@@ -22,6 +22,8 @@ namespace SistemaCadastro
                 MySqlCommand cmd = new MySqlCommand("sp_insereEspecie", conexao);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("nome", novaEspecie.Nome);
+                Console.WriteLine("Alberto");
+                Console.WriteLine(novaEspecie.Preco);
                 cmd.Parameters.AddWithValue("preco", novaEspecie.Preco);
                 cmd.ExecuteNonQuery();
                 return true;
@@ -35,15 +37,15 @@ namespace SistemaCadastro
         public DataTable listaEspecie()
         {
             MySqlCommand cmd = new MySqlCommand("sp_listaEspecie", conexao);
-            CommandType type = CommandType.StoredProcedure;
+            cmd.CommandType  = CommandType.StoredProcedure;
+            Console.WriteLine("rodigro");
             try
             {
+                Console.WriteLine("alberto");
                 conexao.Open();
                 MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                 DataTable tabela = new DataTable();
-                da.Fill(tabela);
-                Console.WriteLine(tabela.ToString());
-                Console.WriteLine("alberto");
+                da.Fill(tabela);               
                 return tabela;
             }
             catch (MySqlException e)
@@ -64,28 +66,6 @@ namespace SistemaCadastro
           
         }
 
-        public DataTable listaGridEspecie()
-        {
-            MySqlCommand cmd = new MySqlCommand("sp_listaEspecie", conexao);
-            CommandType type = CommandType.StoredProcedure;
-            try
-            {
-                conexao.Open();
-                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                DataTable tabela = new DataTable();
-                da.Fill(tabela);
-                return tabela;
-            }
-            catch (MySqlException e)
-            {
-                mensagem = "Erro:" + e.Message;
-                return null;
-            }
-            finally
-            {
-                conexao.Close();
-            }
-        }
         public bool deletaEspecie(int removeEspecie)
         {
             MySqlCommand cmd = new MySqlCommand("sp_removeEspecie", conexao);
@@ -96,7 +76,7 @@ namespace SistemaCadastro
             {
                 conexao.Open();
                 cmd.ExecuteNonQuery();
-                return false;
+                return true;
                
             }
             catch (MySqlException erro)
@@ -109,13 +89,64 @@ namespace SistemaCadastro
                 conexao.Close();
             }
         }
+
+        public bool deletaVenda (int remove)
+        {
+            MySqlCommand cmd = new MySqlCommand("sp_removeVenda", conexao);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("idVenda", remove);
+
+            try
+            {
+                conexao.Open();
+                cmd.ExecuteNonQuery();
+                return true;
+
+            }
+            catch (MySqlException erro)
+            {
+                mensagem = "erro:" + erro.Message;
+                return false;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+        }
+
         public bool alteraEspecie(Especie e,int idEspecie)
         {
             MySqlCommand cmd = new MySqlCommand("sp_alteraEspecie", conexao);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("nomeEspecie", e.Nome);
-            cmd.Parameters.AddWithValue("preco", e.Preco);
+            cmd.Parameters.AddWithValue("precoEspecie", e.Preco);
             cmd.Parameters.AddWithValue("idEspecie", idEspecie);
+            try
+            {
+                conexao.Open();
+                cmd.ExecuteNonQuery();
+                return true;
+
+            }
+            catch (MySqlException erro)
+            {
+
+                mensagem = "erro:" + erro.Message;
+                return false;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+        }
+        public bool alteraVenda(Venda v, int id, double valorTotal)
+        {
+            MySqlCommand cmd = new MySqlCommand("sp_alteraEspecie", conexao);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("quantidadeVenda", v.Quantidade);
+            cmd.Parameters.AddWithValue("peixeVenda", v.Peixe);
+            cmd.Parameters.AddWithValue("precoTotal", v.PrecoTotal);
+            cmd.Parameters.AddWithValue("idVenda", id);
             try
             {
                 conexao.Open();
