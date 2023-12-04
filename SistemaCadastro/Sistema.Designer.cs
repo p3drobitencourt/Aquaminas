@@ -37,14 +37,11 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabCadastrar = new System.Windows.Forms.TabPage();
-            this.BtnConfirmaCadastro = new System.Windows.Forms.Button();
             this.txtPreco = new System.Windows.Forms.TextBox();
             this.txtnome = new System.Windows.Forms.TextBox();
             this.lblPreco = new System.Windows.Forms.Label();
             this.lblNomeEspecie = new System.Windows.Forms.Label();
             this.tabBuscar = new System.Windows.Forms.TabPage();
-            this.btnAlterarEspecie = new System.Windows.Forms.Button();
-            this.btnRemoveEspecie = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.txtEspecieBusca = new System.Windows.Forms.TextBox();
             this.dgEspecie = new System.Windows.Forms.DataGridView();
@@ -53,12 +50,17 @@
             this.txtAlteraNome = new System.Windows.Forms.TextBox();
             this.lblPrecoAlt = new System.Windows.Forms.Label();
             this.lblNomeAlt = new System.Windows.Forms.Label();
-            this.btnConfirmaAlteracaoEspecie = new System.Windows.Forms.Button();
             this.lblMensagem = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbEspecie = new System.Windows.Forms.ComboBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.BtnConfirmaCadastro = new System.Windows.Forms.Button();
+            this.btnAlterarEspecie = new System.Windows.Forms.Button();
+            this.btnRemoveEspecie = new System.Windows.Forms.Button();
+            this.btnConfirmaAlteracaoEspecie = new System.Windows.Forms.Button();
+            this.lblAlteraEspecie = new System.Windows.Forms.Label();
+            this.cbAlteraVenda = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -100,7 +102,7 @@
             this.btnBusca.Name = "btnBusca";
             this.btnBusca.Size = new System.Drawing.Size(131, 49);
             this.btnBusca.TabIndex = 5;
-            this.btnBusca.Text = "&Buscar";
+            this.btnBusca.Text = "&Venda";
             this.btnBusca.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnBusca.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnBusca.UseVisualStyleBackColor = true;
@@ -117,7 +119,7 @@
             this.btnCadastra.Name = "btnCadastra";
             this.btnCadastra.Size = new System.Drawing.Size(131, 49);
             this.btnCadastra.TabIndex = 3;
-            this.btnCadastra.Text = "&Cadastrar";
+            this.btnCadastra.Text = "&Espécie";
             this.btnCadastra.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCadastra.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCadastra.UseVisualStyleBackColor = true;
@@ -155,7 +157,7 @@
             // tabCadastrar
             // 
             this.tabCadastrar.BackColor = System.Drawing.Color.White;
-            this.tabCadastrar.Controls.Add(this.comboBox1);
+            this.tabCadastrar.Controls.Add(this.cbEspecie);
             this.tabCadastrar.Controls.Add(this.label1);
             this.tabCadastrar.Controls.Add(this.BtnConfirmaCadastro);
             this.tabCadastrar.Controls.Add(this.txtPreco);
@@ -169,27 +171,11 @@
             this.tabCadastrar.TabIndex = 0;
             this.tabCadastrar.Text = "Cadastrar";
             // 
-            // BtnConfirmaCadastro
-            // 
-            this.BtnConfirmaCadastro.FlatAppearance.BorderSize = 0;
-            this.BtnConfirmaCadastro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnConfirmaCadastro.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.BtnConfirmaCadastro.ForeColor = System.Drawing.Color.DimGray;
-            this.BtnConfirmaCadastro.Image = global::SistemaCadastro.Properties.Resources.adicionar;
-            this.BtnConfirmaCadastro.Location = new System.Drawing.Point(285, 173);
-            this.BtnConfirmaCadastro.Name = "BtnConfirmaCadastro";
-            this.BtnConfirmaCadastro.Size = new System.Drawing.Size(131, 49);
-            this.BtnConfirmaCadastro.TabIndex = 13;
-            this.BtnConfirmaCadastro.Text = "&Cadastrar";
-            this.BtnConfirmaCadastro.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnConfirmaCadastro.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnConfirmaCadastro.UseVisualStyleBackColor = true;
-            this.BtnConfirmaCadastro.Click += new System.EventHandler(this.BtnConfirmaCadastro_Click);
-            // 
             // txtPreco
             // 
+            this.txtPreco.Enabled = false;
             this.txtPreco.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.txtPreco.Location = new System.Drawing.Point(132, 91);
+            this.txtPreco.Location = new System.Drawing.Point(163, 91);
             this.txtPreco.Name = "txtPreco";
             this.txtPreco.Size = new System.Drawing.Size(480, 27);
             this.txtPreco.TabIndex = 11;
@@ -197,7 +183,7 @@
             // txtnome
             // 
             this.txtnome.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.txtnome.Location = new System.Drawing.Point(132, 44);
+            this.txtnome.Location = new System.Drawing.Point(163, 44);
             this.txtnome.Name = "txtnome";
             this.txtnome.Size = new System.Drawing.Size(480, 29);
             this.txtnome.TabIndex = 9;
@@ -239,42 +225,6 @@
             this.tabBuscar.TabIndex = 1;
             this.tabBuscar.Text = "Buscar";
             // 
-            // btnAlterarEspecie
-            // 
-            this.btnAlterarEspecie.FlatAppearance.BorderSize = 0;
-            this.btnAlterarEspecie.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAlterarEspecie.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.btnAlterarEspecie.ForeColor = System.Drawing.Color.DimGray;
-            this.btnAlterarEspecie.Image = ((System.Drawing.Image)(resources.GetObject("btnAlterarEspecie.Image")));
-            this.btnAlterarEspecie.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAlterarEspecie.Location = new System.Drawing.Point(482, 5);
-            this.btnAlterarEspecie.Name = "btnAlterarEspecie";
-            this.btnAlterarEspecie.Size = new System.Drawing.Size(112, 46);
-            this.btnAlterarEspecie.TabIndex = 15;
-            this.btnAlterarEspecie.Text = "Alterar";
-            this.btnAlterarEspecie.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAlterarEspecie.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAlterarEspecie.UseVisualStyleBackColor = true;
-            this.btnAlterarEspecie.Click += new System.EventHandler(this.btnAlterar_Click);
-            // 
-            // btnRemoveEspecie
-            // 
-            this.btnRemoveEspecie.FlatAppearance.BorderSize = 0;
-            this.btnRemoveEspecie.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRemoveEspecie.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.btnRemoveEspecie.ForeColor = System.Drawing.Color.DimGray;
-            this.btnRemoveEspecie.Image = ((System.Drawing.Image)(resources.GetObject("btnRemoveEspecie.Image")));
-            this.btnRemoveEspecie.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRemoveEspecie.Location = new System.Drawing.Point(363, 5);
-            this.btnRemoveEspecie.Name = "btnRemoveEspecie";
-            this.btnRemoveEspecie.Size = new System.Drawing.Size(122, 46);
-            this.btnRemoveEspecie.TabIndex = 14;
-            this.btnRemoveEspecie.Text = "Remover";
-            this.btnRemoveEspecie.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRemoveEspecie.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnRemoveEspecie.UseVisualStyleBackColor = true;
-            this.btnRemoveEspecie.Click += new System.EventHandler(this.btnRemoveBanda_Click);
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -311,6 +261,8 @@
             // 
             // tabAlterar
             // 
+            this.tabAlterar.Controls.Add(this.cbAlteraVenda);
+            this.tabAlterar.Controls.Add(this.lblAlteraEspecie);
             this.tabAlterar.Controls.Add(this.txtAlteraPreco);
             this.tabAlterar.Controls.Add(this.txtAlteraNome);
             this.tabAlterar.Controls.Add(this.lblPrecoAlt);
@@ -327,8 +279,9 @@
             // 
             // txtAlteraPreco
             // 
+            this.txtAlteraPreco.Enabled = false;
             this.txtAlteraPreco.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.txtAlteraPreco.Location = new System.Drawing.Point(128, 104);
+            this.txtAlteraPreco.Location = new System.Drawing.Point(128, 82);
             this.txtAlteraPreco.Name = "txtAlteraPreco";
             this.txtAlteraPreco.Size = new System.Drawing.Size(480, 27);
             this.txtAlteraPreco.TabIndex = 19;
@@ -336,7 +289,7 @@
             // txtAlteraNome
             // 
             this.txtAlteraNome.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.txtAlteraNome.Location = new System.Drawing.Point(128, 54);
+            this.txtAlteraNome.Location = new System.Drawing.Point(128, 32);
             this.txtAlteraNome.Name = "txtAlteraNome";
             this.txtAlteraNome.Size = new System.Drawing.Size(480, 29);
             this.txtAlteraNome.TabIndex = 17;
@@ -346,7 +299,7 @@
             this.lblPrecoAlt.AutoSize = true;
             this.lblPrecoAlt.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.lblPrecoAlt.ForeColor = System.Drawing.Color.DimGray;
-            this.lblPrecoAlt.Location = new System.Drawing.Point(8, 104);
+            this.lblPrecoAlt.Location = new System.Drawing.Point(8, 82);
             this.lblPrecoAlt.Name = "lblPrecoAlt";
             this.lblPrecoAlt.Size = new System.Drawing.Size(58, 21);
             this.lblPrecoAlt.TabIndex = 16;
@@ -357,29 +310,11 @@
             this.lblNomeAlt.AutoSize = true;
             this.lblNomeAlt.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.lblNomeAlt.ForeColor = System.Drawing.Color.DimGray;
-            this.lblNomeAlt.Location = new System.Drawing.Point(8, 63);
+            this.lblNomeAlt.Location = new System.Drawing.Point(8, 35);
             this.lblNomeAlt.Name = "lblNomeAlt";
             this.lblNomeAlt.Size = new System.Drawing.Size(61, 21);
             this.lblNomeAlt.TabIndex = 14;
             this.lblNomeAlt.Text = "Nome:";
-            // 
-            // btnConfirmaAlteracaoEspecie
-            // 
-            this.btnConfirmaAlteracaoEspecie.FlatAppearance.BorderSize = 0;
-            this.btnConfirmaAlteracaoEspecie.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConfirmaAlteracaoEspecie.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.btnConfirmaAlteracaoEspecie.ForeColor = System.Drawing.Color.DimGray;
-            this.btnConfirmaAlteracaoEspecie.Image = ((System.Drawing.Image)(resources.GetObject("btnConfirmaAlteracaoEspecie.Image")));
-            this.btnConfirmaAlteracaoEspecie.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConfirmaAlteracaoEspecie.Location = new System.Drawing.Point(292, 176);
-            this.btnConfirmaAlteracaoEspecie.Name = "btnConfirmaAlteracaoEspecie";
-            this.btnConfirmaAlteracaoEspecie.Size = new System.Drawing.Size(131, 49);
-            this.btnConfirmaAlteracaoEspecie.TabIndex = 22;
-            this.btnConfirmaAlteracaoEspecie.Text = "Confirmar Alteração";
-            this.btnConfirmaAlteracaoEspecie.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConfirmaAlteracaoEspecie.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnConfirmaAlteracaoEspecie.UseVisualStyleBackColor = true;
-            this.btnConfirmaAlteracaoEspecie.Click += new System.EventHandler(this.btnConfirmaAlteracao_Click);
             // 
             // lblMensagem
             // 
@@ -390,16 +325,6 @@
             this.lblMensagem.Name = "lblMensagem";
             this.lblMensagem.Size = new System.Drawing.Size(0, 13);
             this.lblMensagem.TabIndex = 1;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::SistemaCadastro.Properties.Resources.psicultura_aqua_minas_transparente2;
-            this.pictureBox1.Location = new System.Drawing.Point(200, 25);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(592, 138);
-            this.pictureBox1.TabIndex = 10;
-            this.pictureBox1.TabStop = false;
             // 
             // button2
             // 
@@ -425,18 +350,122 @@
             this.label1.ForeColor = System.Drawing.Color.DimGray;
             this.label1.Location = new System.Drawing.Point(12, 136);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 21);
+            this.label1.Size = new System.Drawing.Size(73, 21);
             this.label1.TabIndex = 14;
-            this.label1.Text = "Peixe:";
+            this.label1.Text = "Espécie:";
+            this.label1.Visible = false;
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // comboBox1
+            // cbEspecie
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(132, 137);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(480, 25);
-            this.comboBox1.TabIndex = 15;
+            this.cbEspecie.FormattingEnabled = true;
+            this.cbEspecie.Location = new System.Drawing.Point(163, 137);
+            this.cbEspecie.Name = "cbEspecie";
+            this.cbEspecie.Size = new System.Drawing.Size(480, 25);
+            this.cbEspecie.TabIndex = 15;
+            this.cbEspecie.Visible = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::SistemaCadastro.Properties.Resources.psicultura_aqua_minas_transparente2;
+            this.pictureBox1.Location = new System.Drawing.Point(200, 25);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(592, 138);
+            this.pictureBox1.TabIndex = 10;
+            this.pictureBox1.TabStop = false;
+            // 
+            // BtnConfirmaCadastro
+            // 
+            this.BtnConfirmaCadastro.FlatAppearance.BorderSize = 0;
+            this.BtnConfirmaCadastro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnConfirmaCadastro.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.BtnConfirmaCadastro.ForeColor = System.Drawing.Color.DimGray;
+            this.BtnConfirmaCadastro.Image = global::SistemaCadastro.Properties.Resources.adicionar;
+            this.BtnConfirmaCadastro.Location = new System.Drawing.Point(285, 173);
+            this.BtnConfirmaCadastro.Name = "BtnConfirmaCadastro";
+            this.BtnConfirmaCadastro.Size = new System.Drawing.Size(131, 49);
+            this.BtnConfirmaCadastro.TabIndex = 13;
+            this.BtnConfirmaCadastro.Text = "&Cadastrar";
+            this.BtnConfirmaCadastro.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnConfirmaCadastro.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnConfirmaCadastro.UseVisualStyleBackColor = true;
+            this.BtnConfirmaCadastro.Click += new System.EventHandler(this.BtnConfirmaCadastro_Click);
+            // 
+            // btnAlterarEspecie
+            // 
+            this.btnAlterarEspecie.FlatAppearance.BorderSize = 0;
+            this.btnAlterarEspecie.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAlterarEspecie.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.btnAlterarEspecie.ForeColor = System.Drawing.Color.DimGray;
+            this.btnAlterarEspecie.Image = ((System.Drawing.Image)(resources.GetObject("btnAlterarEspecie.Image")));
+            this.btnAlterarEspecie.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAlterarEspecie.Location = new System.Drawing.Point(482, 5);
+            this.btnAlterarEspecie.Name = "btnAlterarEspecie";
+            this.btnAlterarEspecie.Size = new System.Drawing.Size(112, 46);
+            this.btnAlterarEspecie.TabIndex = 15;
+            this.btnAlterarEspecie.Text = "Alterar";
+            this.btnAlterarEspecie.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAlterarEspecie.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAlterarEspecie.UseVisualStyleBackColor = true;
+            this.btnAlterarEspecie.Click += new System.EventHandler(this.btnAlterar_Click);
+            // 
+            // btnRemoveEspecie
+            // 
+            this.btnRemoveEspecie.FlatAppearance.BorderSize = 0;
+            this.btnRemoveEspecie.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRemoveEspecie.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.btnRemoveEspecie.ForeColor = System.Drawing.Color.DimGray;
+            this.btnRemoveEspecie.Image = ((System.Drawing.Image)(resources.GetObject("btnRemoveEspecie.Image")));
+            this.btnRemoveEspecie.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRemoveEspecie.Location = new System.Drawing.Point(363, 5);
+            this.btnRemoveEspecie.Name = "btnRemoveEspecie";
+            this.btnRemoveEspecie.Size = new System.Drawing.Size(122, 46);
+            this.btnRemoveEspecie.TabIndex = 14;
+            this.btnRemoveEspecie.Text = "Remover";
+            this.btnRemoveEspecie.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRemoveEspecie.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnRemoveEspecie.UseVisualStyleBackColor = true;
+            this.btnRemoveEspecie.Click += new System.EventHandler(this.btnRemoveBanda_Click);
+            // 
+            // btnConfirmaAlteracaoEspecie
+            // 
+            this.btnConfirmaAlteracaoEspecie.FlatAppearance.BorderSize = 0;
+            this.btnConfirmaAlteracaoEspecie.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConfirmaAlteracaoEspecie.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.btnConfirmaAlteracaoEspecie.ForeColor = System.Drawing.Color.DimGray;
+            this.btnConfirmaAlteracaoEspecie.Image = ((System.Drawing.Image)(resources.GetObject("btnConfirmaAlteracaoEspecie.Image")));
+            this.btnConfirmaAlteracaoEspecie.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConfirmaAlteracaoEspecie.Location = new System.Drawing.Point(292, 176);
+            this.btnConfirmaAlteracaoEspecie.Name = "btnConfirmaAlteracaoEspecie";
+            this.btnConfirmaAlteracaoEspecie.Size = new System.Drawing.Size(131, 49);
+            this.btnConfirmaAlteracaoEspecie.TabIndex = 22;
+            this.btnConfirmaAlteracaoEspecie.Text = "Confirmar Alteração";
+            this.btnConfirmaAlteracaoEspecie.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConfirmaAlteracaoEspecie.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnConfirmaAlteracaoEspecie.UseVisualStyleBackColor = true;
+            this.btnConfirmaAlteracaoEspecie.Click += new System.EventHandler(this.btnConfirmaAlteracao_Click);
+            // 
+            // lblAlteraEspecie
+            // 
+            this.lblAlteraEspecie.AutoSize = true;
+            this.lblAlteraEspecie.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.lblAlteraEspecie.ForeColor = System.Drawing.Color.DimGray;
+            this.lblAlteraEspecie.Location = new System.Drawing.Point(8, 129);
+            this.lblAlteraEspecie.Name = "lblAlteraEspecie";
+            this.lblAlteraEspecie.Size = new System.Drawing.Size(73, 21);
+            this.lblAlteraEspecie.TabIndex = 23;
+            this.lblAlteraEspecie.Text = "Espécie:";
+            this.lblAlteraEspecie.Visible = false;
+            // 
+            // cbAlteraVenda
+            // 
+            this.cbAlteraVenda.FormattingEnabled = true;
+            this.cbAlteraVenda.Location = new System.Drawing.Point(128, 130);
+            this.cbAlteraVenda.Name = "cbAlteraVenda";
+            this.cbAlteraVenda.Size = new System.Drawing.Size(480, 25);
+            this.cbAlteraVenda.TabIndex = 24;
+            this.cbAlteraVenda.Visible = false;
             // 
             // Sistema
             // 
@@ -502,6 +531,8 @@
         private System.Windows.Forms.Label lblPreco;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbEspecie;
+        private System.Windows.Forms.ComboBox cbAlteraVenda;
+        private System.Windows.Forms.Label lblAlteraEspecie;
     }
 }

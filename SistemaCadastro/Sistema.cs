@@ -22,6 +22,39 @@ namespace SistemaCadastro
             InitializeComponent();
 
         }
+
+        void layoutVenda()
+        {
+            lblNomeEspecie.Text = "Quantidade:";
+            lblPreco.Text = "Preço Total";
+            txtPreco.Text = "Calculado automaticamente";
+            label1.Visible = true;
+            cbEspecie.Visible = true;
+            label5.Text = "Venda:";
+            lblAlteraEspecie.Visible = true;
+            cbAlteraVenda.Visible = true;
+            lblPrecoAlt.Text = "Preço Total:";
+            lblNomeAlt.Text = "Quantidade:";
+            txtAlteraPreco.Text = "Calculado automaticamente";
+            listagridEspecie();
+        }
+
+        void layoutEspecie()
+        {
+            lblNomeEspecie.Text = "Nome:";
+            lblPreco.Text = "Preço";
+            txtPreco.Text = "";
+            label1.Visible = false;
+            cbEspecie.Visible = false;
+            label5.Text = "Espécie:";
+            lblAlteraEspecie.Visible = false;
+            cbAlteraVenda.Visible = false;
+            lblPrecoAlt.Text = "Preço:";
+            lblNomeAlt.Text = "Nome:";
+            txtAlteraPreco.Text = "";
+            listagridEspecie();
+        }
+
         void limpaCampos()
         {
             txtnome.Clear();
@@ -37,7 +70,8 @@ namespace SistemaCadastro
         {
             marcador.Height = btnCadastra.Height;
             marcador.Top = btnCadastra.Top;
-            tabControl1.SelectedTab = tabControl1.TabPages[0];
+            estado = 0;
+            layoutEspecie();
         }
 
 
@@ -45,21 +79,40 @@ namespace SistemaCadastro
         {
             marcador.Height = btnBusca.Height;
             marcador.Top = btnBusca.Top;
-            tabControl1.SelectedTab = tabControl1.TabPages[1];
+            estado = 1;
+            layoutVenda();
+
         }
 
 
         private void Sistema_Load(object sender, EventArgs e)
         {
-            //listaCBEspecie();
+            listaCBEspecie();
             listagridEspecie();
-            Console.WriteLine("Inicio load");
         }
         void listagridEspecie()
         {
-            ConectaBD con = new ConectaBD();
-            dgEspecie.DataSource = con.listaEspecie();
-            dgEspecie.Columns["id"].Visible = false;
+            if (estado == 0)
+            {
+                ConectaBD con = new ConectaBD();
+                dgEspecie.DataSource = con.listaEspecie();
+                dgEspecie.Columns["id"].Visible = false;
+            }
+            else
+            {
+                ConectaBD con = new ConectaBD();
+                dgEspecie.DataSource = con.listaVenda();
+                if(estado == 0)
+                {
+                    dgEspecie.Columns["id"].Visible = false;
+                }
+                else
+                {
+                    dgEspecie.Columns["id"].Visible = true;
+                }
+                
+            }
+            
         }
         void listaEspecie()
         {
@@ -67,40 +120,86 @@ namespace SistemaCadastro
         }
 
         private void txtBusca_TextChanged(object sender, EventArgs e)
-        {
-            (dgEspecie.DataSource as DataTable).DefaultView.RowFilter = string.Format("nome like '{0}%'", txtEspecieBusca.Text);
+        {   
+            if(estado == 0)
+            {
+                (dgEspecie.DataSource as DataTable).DefaultView.RowFilter = string.Format("nome like '{0}%'", txtEspecieBusca.Text);
+            }
+            else
+            {
+                (dgEspecie.DataSource as DataTable).DefaultView.RowFilter = string.Format("especie_vendida like '{0}%'", txtEspecieBusca.Text);
+            }
+            
         }
 
         private void btnRemoveBanda_Click(object sender, EventArgs e)
         {
-            int linha = dgEspecie.CurrentRow.Index;
-            int id = Convert.ToInt32(dgEspecie.Rows[linha].Cells["id"].Value.ToString());
-            DialogResult resp = MessageBox.Show("Tem certeza dessa exclusão?", "Remove Peixe", MessageBoxButtons.OKCancel);
-            if (resp == DialogResult.OK)
+            if (estado == 0)
             {
-                ConectaBD con = new ConectaBD();
-                bool retorno = con.deletaEspecie(id);
-                if (retorno == true)
+                int linha = dgEspecie.CurrentRow.Index;
+                int id = Convert.ToInt32(dgEspecie.Rows[linha].Cells["id"].Value.ToString());
+                DialogResult resp = MessageBox.Show("Tem certeza dessa exclusão?", "Remove Peixe", MessageBoxButtons.OKCancel);
+                if (resp == DialogResult.OK)
                 {
-                    MessageBox.Show("Especie excluida com sucesso");
-                    listagridEspecie();
+                    ConectaBD con = new ConectaBD();
+                    bool retorno = con.deletaEspecie(id);
+                    if (retorno == true)
+                    {
+                        MessageBox.Show("Especie excluida com sucesso");
+                        listagridEspecie();
+                    }
+                    else
+                        MessageBox.Show(con.mensagem);
                 }
                 else
-                    MessageBox.Show(con.mensagem);
+                    MessageBox.Show("Exclusão cancelada");
+
             }
             else
-                MessageBox.Show("Exclusão cancelada");
+            {
+                int linha = dgEspecie.CurrentRow.Index;
+                int id = Convert.ToInt32(dgEspecie.Rows[linha].Cells["id"].Value.ToString());
+                DialogResult resp = MessageBox.Show("Tem certeza dessa exclusão?", "Remove Venda", MessageBoxButtons.OKCancel);
+                if (resp == DialogResult.OK)
+                {
+                    ConectaBD con = new ConectaBD();
+                    bool retorno = con.deletaVenda(id);
+                    if (retorno == true)
+                    {
+                        MessageBox.Show("Venda excluida com sucesso");
+                        listagridEspecie();
+                    }
+                    else
+                        MessageBox.Show(con.mensagem);
+                }
+                else
+                    MessageBox.Show("Exclusão cancelada");
+
+            }
 
         }
   
 
         private void btnAlterar_Click(object sender, EventArgs e)
         {
-            int linha = dgEspecie.CurrentRow.Index;
-            idAlterar = Convert.ToInt32(dgEspecie.Rows[linha].Cells["id"].Value.ToString());
-            txtAlteraNome.Text = dgEspecie.Rows[linha].Cells["nome"].Value.ToString();
-            txtAlteraPreco.Text = dgEspecie.Rows[linha].Cells["preco"].Value.ToString();
-            tabControl1.SelectedTab = tabAlterar;
+            if(estado == 0)
+            {
+                int linha = dgEspecie.CurrentRow.Index;
+                idAlterar = Convert.ToInt32(dgEspecie.Rows[linha].Cells["id"].Value.ToString());
+                txtAlteraNome.Text = dgEspecie.Rows[linha].Cells["quantidade"].Value.ToString();
+                txtAlteraPreco.Text = dgEspecie.Rows[linha].Cells["preco_total"].Value.ToString();
+                tabControl1.SelectedTab = tabAlterar;
+            }
+            else
+            {
+                int linha = dgEspecie.CurrentRow.Index;
+                idAlterar = Convert.ToInt32(dgEspecie.Rows[linha].Cells["id"].Value.ToString());
+                txtAlteraNome.Text = dgEspecie.Rows[linha].Cells["quantidade"].Value.ToString();
+                txtAlteraPreco.Text = dgEspecie.Rows[linha].Cells["preco_total"].Value.ToString();
+                cbAlteraVenda.Text = dgEspecie.Rows[linha].Cells["especie_vendida"].Value.ToString();
+                tabControl1.SelectedTab = tabAlterar;
+            }
+            
         }
 
         private void btnConfirmaAlteracao_Click(object sender, EventArgs e)
@@ -143,11 +242,11 @@ namespace SistemaCadastro
             else
             {
                 ConectaBD con = new ConectaBD();
-                Especie novaEspecie = new Especie();
-                novaEspecie.Nome = txtnome.Text;
-                novaEspecie.Preco = Convert.ToDouble(txtPreco.Text);
-                Console.WriteLine(novaEspecie.Preco);
-                bool retorno = con.insereEspecie(novaEspecie);
+                Venda venda = new Venda();
+                venda.Quantidade = Convert.ToInt32(txtnome.Text);
+                venda.Peixe = Convert.ToInt32(cbEspecie.SelectedValue.ToString());
+                venda.PrecoTotal = con.precoEspecie(venda.Peixe) * venda.Quantidade;
+                bool retorno = con.insereVenda(venda);
                 if (retorno == false)
                     MessageBox.Show(con.mensagem);
 
@@ -168,6 +267,14 @@ namespace SistemaCadastro
             ConectaBD con = new ConectaBD();
             DataTable tabelaDados = new DataTable();
             tabelaDados = con.listaEspecie();
+            cbEspecie.DataSource = tabelaDados;
+            cbEspecie.DisplayMember = "nome";
+            cbEspecie.ValueMember = "id";
+    
+            cbAlteraVenda.DataSource = tabelaDados;
+            cbAlteraVenda.DisplayMember = "nome";
+            cbAlteraVenda.ValueMember = "id";
+
         }
     }
 }

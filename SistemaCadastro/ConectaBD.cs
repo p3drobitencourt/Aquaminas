@@ -22,8 +22,6 @@ namespace SistemaCadastro
                 MySqlCommand cmd = new MySqlCommand("sp_insereEspecie", conexao);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("nome", novaEspecie.Nome);
-                Console.WriteLine("Alberto");
-                Console.WriteLine(novaEspecie.Preco);
                 cmd.Parameters.AddWithValue("preco", novaEspecie.Preco);
                 cmd.ExecuteNonQuery();
                 return true;
@@ -34,14 +32,33 @@ namespace SistemaCadastro
                 return false;
             }
         }
+
+        public bool insereVenda(Venda novaVenda)
+        {
+            try
+            {
+                conexao.Open();
+                MySqlCommand cmd = new MySqlCommand("sp_insereVenda", conexao);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("quantidade", novaVenda.Quantidade);
+                cmd.Parameters.AddWithValue("precoTotal", novaVenda.PrecoTotal);
+                cmd.Parameters.AddWithValue("peixe", novaVenda.Peixe);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (MySqlException erro)
+            {
+                mensagem = erro.Message;
+                return false;
+            }
+        }
+
         public DataTable listaEspecie()
         {
             MySqlCommand cmd = new MySqlCommand("sp_listaEspecie", conexao);
             cmd.CommandType  = CommandType.StoredProcedure;
-            Console.WriteLine("rodigro");
             try
             {
-                Console.WriteLine("alberto");
                 conexao.Open();
                 MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                 DataTable tabela = new DataTable();
@@ -58,6 +75,56 @@ namespace SistemaCadastro
                 conexao.Close();
             }
         }
+
+        public double precoEspecie(int idEspecie)
+        {
+            MySqlCommand cmd = new MySqlCommand("sp_precoEspecie", conexao);
+            cmd.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                conexao.Open();
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+
+                double preco = Convert.ToDouble(da.ToString());
+                Console.WriteLine(preco);
+                return preco;
+            }
+            catch (MySqlException e)
+            {
+                mensagem = "Erro:" + e.Message;
+                Console.WriteLine(mensagem);
+                return -10000.0;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+        }
+
+            public DataTable listaVenda()
+        {
+            MySqlCommand cmd = new MySqlCommand("sp_listaVenda", conexao);
+            cmd.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                conexao.Open();
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                DataTable tabela = new DataTable();
+                da.Fill(tabela);
+                return tabela;
+            }
+            catch (MySqlException e)
+            {
+                mensagem = "Erro:" + e.Message;
+                return null;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+        }
+
+
         public void listaCBEspecie()
         {
             ConectaBD con = new ConectaBD();
