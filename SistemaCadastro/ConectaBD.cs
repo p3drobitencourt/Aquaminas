@@ -206,9 +206,9 @@ namespace SistemaCadastro
                 conexao.Close();
             }
         }
-        public bool alteraVenda(Venda v, int id, double valorTotal)
+        public bool alteraVenda(Venda v, int id)
         {
-            MySqlCommand cmd = new MySqlCommand("sp_alteraEspecie", conexao);
+            MySqlCommand cmd = new MySqlCommand("sp_alteraVenda", conexao);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("quantidadeVenda", v.Quantidade);
             cmd.Parameters.AddWithValue("peixeVenda", v.Peixe);

@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Diagnostics.Eventing.Reader;
+using static System.Windows.Forms.LinkLabel;
 
 namespace SistemaCadastro
 {
@@ -36,6 +38,8 @@ namespace SistemaCadastro
             lblPrecoAlt.Text = "Preço Total:";
             lblNomeAlt.Text = "Quantidade:";
             txtAlteraPreco.Text = "Calculado automaticamente";
+            txtPreco.Enabled = false;
+            txtAlteraPreco.Enabled = false;
             listagridEspecie();
         }
 
@@ -52,6 +56,8 @@ namespace SistemaCadastro
             lblPrecoAlt.Text = "Preço:";
             lblNomeAlt.Text = "Nome:";
             txtAlteraPreco.Text = "";
+            txtPreco.Enabled = true;
+            txtAlteraPreco.Enabled = true;
             listagridEspecie();
         }
 
@@ -96,7 +102,8 @@ namespace SistemaCadastro
             {
                 ConectaBD con = new ConectaBD();
                 dgEspecie.DataSource = con.listaEspecie();
-                dgEspecie.Columns["id"].Visible = false;
+                dgEspecie.Columns["id"].Visible = true;
+                dgEspecie.Columns["preco"].Visible = true;
             }
             else
             {
@@ -186,8 +193,8 @@ namespace SistemaCadastro
             {
                 int linha = dgEspecie.CurrentRow.Index;
                 idAlterar = Convert.ToInt32(dgEspecie.Rows[linha].Cells["id"].Value.ToString());
-                txtAlteraNome.Text = dgEspecie.Rows[linha].Cells["quantidade"].Value.ToString();
-                txtAlteraPreco.Text = dgEspecie.Rows[linha].Cells["preco_total"].Value.ToString();
+                txtAlteraNome.Text = dgEspecie.Rows[linha].Cells["nome"].Value.ToString();
+                txtAlteraPreco.Text = dgEspecie.Rows[linha].Cells["preco"].Value.ToString();
                 tabControl1.SelectedTab = tabAlterar;
             }
             else
@@ -204,17 +211,44 @@ namespace SistemaCadastro
 
         private void btnConfirmaAlteracao_Click(object sender, EventArgs e)
         {
-            ConectaBD con = new ConectaBD();
-            Especie novaEspecie = new Especie();
-            novaEspecie.Nome = txtAlteraNome.Text ;
-            novaEspecie.Preco = Convert.ToDouble(txtAlteraPreco.Text);
-            bool retorno = con.alteraEspecie(novaEspecie,idAlterar);
-            if (retorno == false)
-                MessageBox.Show(con.mensagem);
-            else
-                MessageBox.Show("Alteração realizada com sucesso");
+            if (estado == 0)
+            {
+                ConectaBD con = new ConectaBD();
+                Especie novaEspecie = new Especie();
+                novaEspecie.Nome = txtAlteraNome.Text;
+                novaEspecie.Preco = Convert.ToDouble(txtAlteraPreco.Text);
+                bool retorno = con.alteraEspecie(novaEspecie, idAlterar);
+                if (retorno == false)
+                    MessageBox.Show(con.mensagem);
+                else
+                    MessageBox.Show("Alteração realizada com sucesso");
                 listagridEspecie();
                 tabControl1.SelectedTab = tabBuscar;
+            }
+            else
+            {
+                ConectaBD con = new ConectaBD();
+                Venda venda = new Venda();
+                venda.Quantidade = Convert.ToInt32(txtAlteraNome.Text);
+                venda.Peixe = Convert.ToInt32(cbAlteraVenda.SelectedValue.ToString());
+                dgEspecie.DataSource = con.listaEspecie();
+                for (int i = 0; i < dgEspecie.RowCount - 1; i++)
+                {
+                    //MessageBox.Show(dgEspecie.Rows[i].Cells["id"].Value.ToString());
+                    if (Convert.ToInt32(dgEspecie.Rows[i].Cells["id"].Value.ToString()) == venda.Peixe)
+                    {
+                        venda.PrecoTotal = Convert.ToDouble(dgEspecie.Rows[i].Cells["preco"].Value.ToString()) * venda.Quantidade;
+                        //MessageBox.Show(venda.PrecoTotal.ToString());
+                    }
+                }
+                bool retorno = con.alteraVenda(venda, idAlterar);
+                if (retorno == false)
+                    MessageBox.Show(con.mensagem);
+                else
+                    MessageBox.Show("Alteração realizada com sucesso");
+                listagridEspecie();
+                tabControl1.SelectedTab = tabBuscar;  
+            }
 
         }
 
@@ -233,7 +267,8 @@ namespace SistemaCadastro
                 novaEspecie.Preco = Convert.ToDouble(txtPreco.Text);
                 Console.WriteLine(novaEspecie.Preco);
                 bool retorno = con.insereEspecie(novaEspecie);
-                if (retorno == false)
+                if (retorno == false)		
+
                     MessageBox.Show(con.mensagem);
 
                 limpaCampos();
@@ -245,7 +280,17 @@ namespace SistemaCadastro
                 Venda venda = new Venda();
                 venda.Quantidade = Convert.ToInt32(txtnome.Text);
                 venda.Peixe = Convert.ToInt32(cbEspecie.SelectedValue.ToString());
-                venda.PrecoTotal = con.precoEspecie(venda.Peixe) * venda.Quantidade;
+                dgEspecie.DataSource = con.listaEspecie();
+                for (int i = 0; i < dgEspecie.RowCount - 1; i++)
+                {
+                    //MessageBox.Show(dgEspecie.Rows[i].Cells["id"].Value.ToString());
+                    if (Convert.ToInt32(dgEspecie.Rows[i].Cells["id"].Value.ToString()) == venda.Peixe)
+                    {
+                        venda.PrecoTotal = Convert.ToDouble(dgEspecie.Rows[i].Cells["preco"].Value.ToString()) * venda.Quantidade;
+                        //MessageBox.Show(venda.PrecoTotal.ToString());
+
+                    }
+                }    
                 bool retorno = con.insereVenda(venda);
                 if (retorno == false)
                     MessageBox.Show(con.mensagem);
