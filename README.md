@@ -1,6 +1,8 @@
 # Project_Aquaminas
 Sistema Desenvolvido em C# conectado com o Banco de Dados
-
+Desenvolvido por: 
+LuisGustavo52
+p3drobitencourt
 
 LINGUAGENS UTILIZADAS:
 
@@ -13,6 +15,7 @@ FERRAMENTAS UTILIZADAS:
 -HeidiSQL
 -Microsoft Visual Studio
 -Xampp
+-MySQLWorkbench
 
 
 FUNÇÔES DO SOFTWARE
